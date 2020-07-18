@@ -1,10 +1,10 @@
-#Background
+# Background
 
 In daily working hours, people have to use the schedule management software. For example, I use Ali's nails in the project. I have a lot of meetings and work arrangements. The schedule is clear and convenient. But my work is not my whole life. In my life, I use Huawei mobile phone and I am satisfied with the calendar application on my mobile phone, so I use it frequently. Invisibly, this has caused a problem. When I look at the schedule on my mobile phone, there is no work plan on the nail. Just when I need to check the work schedule, I have to open the nailing application to view it. If the frequency of checking the schedule is not high in your life, the impact is not great, but I personally encounter this scene is still relatively Yes, I have to go back and forth every time to check whether there is a time conflict. As time goes by, more time is wasted. This makes me very unhappy. I decided to change this situation.
 
 
 
-#Business model
+# Business model
 
 
 
@@ -14,13 +14,13 @@ Therefore, the method of pulling is adopted here. The collector collector pulls 
 
 
 
-#Technical design
+# Technical design
 
 The schedule synchronization service Pheidippides is called pheidi for short. Herald will be responsible for the integration of data and translation. Redis and influxdb are used in the storage layer. Redis is mainly used as a lightweight message middleware, while influxdb is responsible for storing the schedule information by time.
 
-##Module design
+## Module design
 
-###Collector
+### Collector
 
 1. Get the application schedule data and transfer it to the schedule synchronization gateway
 
@@ -28,19 +28,19 @@ The schedule synchronization service Pheidippides is called pheidi for short. He
 
 3. The collector is related to the application and the application runtime environment. It can be divided into cloud collection and local collection according to whether it needs to be installed in the running environment; it can be divided into win, MAC, Android and IOS according to the application running environment;
 
-###Schedule synchronization gateway:
+### Schedule synchronization gateway:
 
 1. Responsible for receiving schedule synchronization requests from tens of millions of collectors around the world, writing them to message middleware and responding to requests quickly
 
 2. High throughput, high performance, high availability and easy expansion are required
 
-###Schedule conversion service:
+### Schedule conversion service:
 
 The message format is converted from the message to the schedule
 
 2. After completing the data conversion, store the converted data into the memory database
 
-###Schedule broadcast service:
+### Schedule broadcast service:
 
 1. Receive the schedule synchronization request from the collector, and return all the schedule synchronization information of the user according to the timestamp in the request parameter
 
