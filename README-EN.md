@@ -36,7 +36,7 @@ The schedule synchronization service Pheidippides is called pheidi for short. He
 
 ### Schedule conversion service:
 
-The message format is converted from the message to the schedule
+1. The message format is converted from the message to the schedule
 
 2. After completing the data conversion, store the converted data into the memory database
 
