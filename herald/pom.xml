@@ -15,7 +15,7 @@
     <dependencies>
         <dependency>
             <groupId>gl.linpeng</groupId>
-            <artifactId>translation</artifactId>
+            <artifactId>conversion</artifactId>
             <version>${pheidi.version}</version>
         </dependency>
         <dependency>

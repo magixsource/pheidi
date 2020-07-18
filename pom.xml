@@ -5,7 +5,7 @@
     <packaging>pom</packaging>
     <modules>
         <module>herald</module>
-        <module>translation</module>
+        <module>conversion</module>
     </modules>
     <parent>
         <groupId>org.springframework.boot</groupId>
