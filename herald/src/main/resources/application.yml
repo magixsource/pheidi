@@ -4,6 +4,14 @@ spring:
   redis:
     host: localhost
     port: 6379
-
-pheidi:
-  auth: bn9zefweplm
+  datasource:
+    url: jdbc:mysql://localhost:3306/pheidi?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true
+    username: root
+    password: Hacker.com123
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  liquibase:
+    enabled: true
+    change-log: "classpath:/db/changelog/changelog-master.xml"

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2020-07-19-create-table-schedule" author="magixsource.cn@gmail.com">
+        <createTable tableName="PHEIDI_SCHEDULE">
+            <column name="ID" type="BIGINT UNSIGNED" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="TITLE" type="VARCHAR(100)" remarks="标题">
+            </column>
+            <column name="DESCRIPTION" type="VARCHAR(200)" remarks="说明">
+            </column>
+            <column name="START_DATE_TIME" type="DATETIME" remarks="日程开始时间">
+            </column>
+            <column name="END_DATE_TIME" type="DATETIME" remarks="日程结束时间">
+            </column>
+            <column name="TARGET" type="VARCHAR(100)" remarks="日程目标">
+            </column>
+            <column name="EXECUTOR_NAME" type="VARCHAR(50)" remarks="执行人名称">
+            </column>
+            <column name="EXECUTOR_TEL" type="VARCHAR(100)" remarks="联系方式">
+            </column>
+            <column name="CATEGORIES_TYPE" type="VARCHAR(50)" remarks="日程分类类型: 约会、出差、会议、纪念日、休息日、休假、节日、其他">
+            </column>
+            <column name="CATEGORIES" type="VARCHAR(100)" remarks="日程分类">
+            </column>
+            <column name="ADDRESS_GEO" type="VARCHAR(50)" remarks="日程地理位置">
+            </column>
+            <column name="ADDRESS" type="VARCHAR(100)" remarks="日程位置">
+            </column>
+            <column name="RULE_EXCLUDE_DATE" type="VARCHAR(100)" remarks="日程重复规则排除日期">
+            </column>
+            <column name="RULE" type="VARCHAR(100)" remarks="日程重复规则">
+            </column>
+            <column name="STATUS" type="INT" remarks="日程状态: 0制定中 1待执行 2 执行中 3完成 4暂停 5取消 6过期">
+            </column>
+            <column name="ALARM_TYPE" type="VARCHAR(50)" remarks="日程提醒方式: AALARM音频 MALARM邮件 PALARM程序 TELARM短信">
+            </column>
+            <column name="ALARM_TIMES" type="INT" remarks="日程提醒次数">
+            </column>
+            <column name="ALARM_DATE" type="DATETIME" remarks="日程提醒时间">
+            </column>
+            <column name="ESSENTIAL" type="INT" remarks="日程重要程度： 0不重要 1一般 2重要 3最重要">
+            </column>
+            <column name="INTENSIVE" type="INT" remarks="日程密级： 0私人 1公开 2私密">
+            </column>
+            <column name="CREATED_BY" type="BIGINT" defaultValue="-1">
+            </column>
+            <column name="CREATION_DATE" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+            </column>
+            <column name="LAST_UPDATED_BY" type="BIGINT" defaultValue="-1">
+            </column>
+            <column name="LAST_UPDATE_DATE" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="PHEIDI_SCHEDULE"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

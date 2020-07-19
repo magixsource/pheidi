@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2020-07-19-create-table-user" author="magixsource.cn@gmail.com">
+        <createTable tableName="PHEIDI_USER">
+            <column name="ID" type="BIGINT UNSIGNED" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="NAME" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+            <column name="SECRET" type="VARCHAR(200)" remarks="登录密码">
+                <constraints nullable="false"/>
+            </column>
+            <column name="EMAIL" type="VARCHAR(250)" remarks="电子邮箱">
+            </column>
+            <column name="STATUS" type="INT" remarks="用户状态：0 未激活；1 正常；2 已注销" defaultValue="0">
+            </column>
+            <column name="CREATED_BY" type="BIGINT" defaultValue="-1">
+            </column>
+            <column name="CREATION_DATE" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+            </column>
+            <column name="LAST_UPDATED_BY" type="BIGINT" defaultValue="-1">
+            </column>
+            <column name="LAST_UPDATE_DATE" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="PHEIDI_USER"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>

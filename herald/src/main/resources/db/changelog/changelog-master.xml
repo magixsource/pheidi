@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <include file="classpath:db/changelog/changes/2020-07-19-create-table-user.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/changes/2020-07-19-create-table-auth.xml" relativeToChangelogFile="false"/>
+    <include file="classpath:db/changelog/changes/2020-07-19-create-table-schedule.xml" relativeToChangelogFile="false"/>
+</databaseChangeLog>

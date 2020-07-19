@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+         http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.8.xsd">
+
+    <changeSet id="2020-07-19-create-table-auth" author="magixsource.cn@gmail.com">
+        <createTable tableName="PHEIDI_AUTH">
+            <column name="ID" type="BIGINT UNSIGNED" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false"/>
+            </column>
+            <column name="USER_ID" type="BIGINT" remarks="用户ID">
+                <constraints nullable="false"/>
+            </column>
+            <column name="CODE" type="VARCHAR(100)" remarks="认证码">
+                <constraints nullable="false" unique="true"/>
+            </column>
+            <column name="DEVICE" type="VARCHAR(50)" remarks="用户自定义的认证码所属装置，如HUAWEI-A100,THINKPAD-X1-9987">
+            </column>
+            <column name="STATUS" type="INT" remarks="认证码状态：0 停用；1 启用；2 已过期" defaultValue="0">
+            </column>
+            <column name="CREATED_BY" type="BIGINT" defaultValue="-1">
+            </column>
+            <column name="CREATION_DATE" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+            </column>
+            <column name="LAST_UPDATED_BY" type="BIGINT" defaultValue="-1">
+            </column>
+            <column name="LAST_UPDATE_DATE" type="DATETIME" defaultValueComputed="CURRENT_TIMESTAMP">
+            </column>
+        </createTable>
+        <rollback>
+            <dropTable tableName="PHEIDI_AUTH"/>
+        </rollback>
+    </changeSet>
+</databaseChangeLog>
