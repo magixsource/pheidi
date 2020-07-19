@@ -6,8 +6,8 @@ spring:
     port: 6379
   datasource:
     url: jdbc:mysql://localhost:3306/pheidi?serverTimezone=GMT%2B8&useUnicode=true&characterEncoding=utf-8&useSSL=true
-    username: root
-    password: Hacker.com123
+    username: pheidi
+    password: pheidi
   jpa:
     show-sql: true
     hibernate:
