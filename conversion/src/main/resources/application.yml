@@ -4,6 +4,3 @@ spring:
   redis:
     host: localhost
     port: 6379
-
-pheidi:
-  auth: bn9zefweplm
