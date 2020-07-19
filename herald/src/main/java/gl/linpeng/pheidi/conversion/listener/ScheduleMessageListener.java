@@ -1,13 +1,16 @@
 package gl.linpeng.pheidi.conversion.listener;
 
+import gl.linpeng.pheidi.conversion.converter.ScheduleConverterManager;
+import gl.linpeng.pheidi.herald.model.ScheduleModel;
+import gl.linpeng.pheidi.herald.repository.ScheduleRepository;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.connection.Message;
 import org.springframework.data.redis.connection.MessageListener;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
-import java.util.List;
+import java.util.Arrays;
 
 /**
  * Conversion message listener
@@ -18,16 +21,18 @@ import java.util.List;
 @Service
 public class ScheduleMessageListener implements MessageListener {
     private Logger logger = LoggerFactory.getLogger(ScheduleMessageListener.class);
-    public static List<String> messageList = new ArrayList<>();
+    @Autowired
+    private ScheduleConverterManager scheduleConverterManager;
+    @Autowired
+    private ScheduleRepository scheduleRepository;
 
     @Override
     public void onMessage(Message message, byte[] bytes) {
-        messageList.add(message.toString());
-        logger.info("从频道订阅中接收消息 {}", message.toString());
+        String raw = Arrays.toString(message.getBody());
+        logger.info("从频道订阅中接收消息 {}", raw);
         // convert message to stand spec schedule data struct
-        //TODO there is to many schedule data from real world, so here i need a extendable architecture
-
-        // store stand spec schedule data to time serial db
-        // TODO now time serial db only `influx` one choice :( , is there any more lightweight ?
+        ScheduleModel scheduleModel = scheduleConverterManager.convert(raw);
+        // store stand spec schedule data to db
+        scheduleRepository.save(scheduleModel);
     }
 }
