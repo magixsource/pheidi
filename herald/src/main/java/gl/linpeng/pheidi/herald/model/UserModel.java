@@ -1,5 +1,6 @@
 package gl.linpeng.pheidi.herald.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
@@ -8,6 +9,7 @@ import javax.persistence.Table;
  * @author lin.peng
  * @since 0.0.1
  */
+@Entity
 @Table(name = "PHEIDI_USER")
 public class UserModel extends BaseModel {
 

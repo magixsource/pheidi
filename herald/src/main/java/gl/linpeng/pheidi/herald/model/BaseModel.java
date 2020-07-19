@@ -1,5 +1,6 @@
 package gl.linpeng.pheidi.herald.model;
 
+import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import java.io.Serializable;
@@ -11,6 +12,7 @@ import java.util.Date;
  * @author lin.peng
  * @since 0.0.1
  */
+@Entity
 public class BaseModel implements Serializable {
 
     @Id

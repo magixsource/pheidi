@@ -10,6 +10,9 @@
             <column name="ID" type="BIGINT UNSIGNED" autoIncrement="true">
                 <constraints primaryKey="true" nullable="false"/>
             </column>
+            <column name="AUTH_ID" type="BIGINT" remarks="认证ID">
+                <constraints nullable="false" foreignKeyName="FK_SCHEDULE_AUTH" referencedColumnNames="PHEIDI_AUTH(ID)"/>
+            </column>
             <column name="TITLE" type="VARCHAR(100)" remarks="标题">
             </column>
             <column name="DESCRIPTION" type="VARCHAR(200)" remarks="说明">

@@ -1,5 +1,6 @@
 package gl.linpeng.pheidi.herald.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Table;
 import java.util.Date;
 
@@ -9,9 +10,14 @@ import java.util.Date;
  * @author lin.peng
  * @since 0.0.1
  */
+@Entity
 @Table(name = "PHEIDI_SCHEDULE")
 public class ScheduleModel extends BaseModel {
 
+    /**
+     * 认证ID
+     */
+    private Long authId;
     /**
      * 标题
      */
@@ -88,6 +94,14 @@ public class ScheduleModel extends BaseModel {
      * 日程密级： 0私人 1公开 2私密
      */
     private Integer intensive;
+
+    public Long getAuthId() {
+        return authId;
+    }
+
+    public void setAuthId(Long authId) {
+        this.authId = authId;
+    }
 
     public String getTitle() {
         return title;

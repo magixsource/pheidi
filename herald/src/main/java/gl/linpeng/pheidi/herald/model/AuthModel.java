@@ -1,5 +1,6 @@
 package gl.linpeng.pheidi.herald.model;
 
+import javax.persistence.Entity;
 import javax.persistence.Table;
 
 /**
@@ -8,8 +9,9 @@ import javax.persistence.Table;
  * @author lin.peng
  * @since 0.0.1
  */
+@Entity
 @Table(name = "PHEIDI_AUTH")
-public class AuthModel extends BaseModel {
+public class AuthModel extends BaseModel{
 
     private Long userId;
     private String code;
