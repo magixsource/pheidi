@@ -11,14 +11,6 @@ import gl.linpeng.pheidi.herald.model.ScheduleModel;
 public interface ScheduleConverterManager {
 
     /**
-     * Registers schedule converter to manager
-     *
-     * @param scheduleConverter schedule converter object
-     * @return true if operation success
-     */
-    boolean registersConverter(ScheduleConverter scheduleConverter);
-
-    /**
      * delegate convert raw object to schedule model
      *
      * @param rawObject raw object from source
